@@ -1,0 +1,45 @@
+@{
+    ViewData["Title"] = "Zawartość tabeli - " + ViewBag.TableName;
+}
+
+<h2>Zawartość tabeli: @ViewBag.TableName</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            @if (Model != null && Model.Count > 0)
+            {
+                foreach (var column in Model.First().GetType().GetProperties())
+                {
+                    <th>@column.Name</th>
+                }
+                <th>Akcje</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Count > 0)
+        {
+            foreach (var row in Model)
+            {
+                <tr>
+                    @foreach (var column in row.GetType().GetProperties())
+                    {
+                        <td>@column.GetValue(row)</td>
+                    }
+                    <td>
+                        <form method="post" action="@Url.Action("DeleteRow", "Admin", new { tableName = ViewBag.TableName, id = row.Id })" onsubmit="return confirm('Czy na pewno chcesz usunąć ten rekord?');">
+                            <button type="submit" class="btn btn-danger">Usuń</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="100%">Brak danych w tabeli.</td>
+            </tr>
+        }
+    </tbody>
+</table>

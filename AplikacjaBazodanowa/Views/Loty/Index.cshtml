@@ -1,0 +1,36 @@
+@model IEnumerable<AplikacjaBazodanowa.Models.Loty>
+
+<h2>Loty</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Dodaj nowy lot</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Miasto Odlotu</th>
+            <th>Miasto Przylotu</th>
+            <th>Data Odlotu</th>
+            <th>Data Przylotu</th>
+            <th>Samolot</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Miasto_Odlotu</td>
+                <td>@item.Miasto_Przylotu</td>
+                <td>@item.Data_Odlotu.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>@item.Data_Przylotu.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>@item.Samolot.Model</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id_Lotu" class="btn btn-warning">Edytuj</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id_Lotu" class="btn btn-danger">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> 

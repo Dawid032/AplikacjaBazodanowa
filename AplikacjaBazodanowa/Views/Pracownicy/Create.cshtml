@@ -1,0 +1,29 @@
+@model AplikacjaBazodanowa.Models.Pracownicy
+
+<h2>Dodaj Pracownika</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="Imie" class="control-label"></label>
+        <input asp-for="Imie" class="form-control" />
+        <span asp-validation-for="Imie" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Nazwisko" class="control-label"></label>
+        <input asp-for="Nazwisko" class="form-control" />
+        <span asp-validation-for="Nazwisko" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Stanowisko" class="control-label"></label>
+        <input asp-for="Stanowisko" class="form-control" />
+        <span asp-validation-for="Stanowisko" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Pensja" class="control-label"></label>
+        <input asp-for="Pensja" class="form-control" />
+        <span asp-validation-for="Pensja" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Dodaj" class="btn btn-primary" />
+    </div>
+</form> 

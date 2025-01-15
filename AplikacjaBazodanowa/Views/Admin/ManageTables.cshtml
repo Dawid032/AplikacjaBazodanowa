@@ -1,0 +1,29 @@
+
+@model dynamic[]
+
+@{
+    ViewData["Title"] = "Zarządzaj Tabelami";
+}
+
+<h2>Zarządzaj Tabelami</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nazwa Tabeli</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var table in Model)
+        {
+            <tr>
+                <td>@table.Name</td>
+                <td>
+                    <a asp-controller="@table.Url" asp-action="Index" class="btn btn-primary">Wyświetl i Edytuj</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+```

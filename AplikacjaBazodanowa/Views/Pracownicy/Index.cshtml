@@ -1,0 +1,34 @@
+@model IEnumerable<AplikacjaBazodanowa.Models.Pracownicy>
+
+<h2>Pracownicy</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Dodaj nowego pracownika</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Stanowisko</th>
+            <th>Pensja</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Imie</td>
+                <td>@item.Nazwisko</td>
+                <td>@item.Stanowisko</td>
+                <td>@item.Pensja</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id_Pracownika" class="btn btn-warning">Edytuj</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id_Pracownika" class="btn btn-danger">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> 

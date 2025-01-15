@@ -1,0 +1,22 @@
+@model AplikacjaBazodanowa.Models.Zaloga
+
+<h2>Usuń Członka Załogi</h2>
+
+<h3>Czy na pewno chcesz usunąć tego członka załogi?</h3>
+<div>
+    <h4>@Model.Lot.Miasto_Odlotu - @Model.Lot.Miasto_Przylotu, @Model.Pilot.Imie @Model.Pilot.Nazwisko</h4>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Funkcja
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Funkcja
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Usuń" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+    </form>
+</div> 

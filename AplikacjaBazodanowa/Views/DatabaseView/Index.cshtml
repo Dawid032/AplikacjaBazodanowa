@@ -1,0 +1,48 @@
+@model IEnumerable<AplikacjaBazodanowa.Models.Loty>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Rozkład Lotów</h2>
+
+<form asp-action="Filter" method="post" class="mb-4">
+    <div class="row">
+        <div class="col-md-3">
+            <input type="text" name="miastoOdlotu" class="form-control" placeholder="Miasto odlotu" />
+        </div>
+        <div class="col-md-3">
+            <input type="text" name="miastoPrzylotu" class="form-control" placeholder="Miasto przylotu" />
+        </div>
+        <div class="col-md-3">
+            <input type="date" name="dataOdlotu" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-primary">Filtruj</button>
+        </div>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Miasto odlotu</th>
+            <th>Miasto przylotu</th>
+            <th>Data odlotu</th>
+            <th>Data przylotu</th>
+            <th>Samolot</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var lot in Model)
+        {
+            <tr>
+                <td>@lot.Miasto_Odlotu</td>
+                <td>@lot.Miasto_Przylotu</td>
+                <td>@lot.Data_Odlotu.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>@lot.Data_Przylotu.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>@lot.Samolot?.Model</td>
+            </tr>
+        }
+    </tbody>
+</table> 

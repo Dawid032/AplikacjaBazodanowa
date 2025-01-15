@@ -1,0 +1,32 @@
+@model IEnumerable<AplikacjaBazodanowa.Models.Samoloty>
+
+<h2>Samoloty</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Dodaj nowy samolot</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Model</th>
+            <th>Liczba Miejsc</th>
+            <th>Linia Lotnicza</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Model</td>
+                <td>@item.Liczba_Miejsc</td>
+                <td>@item.LinieLotnicze.Nazwa</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id_Samolotu" class="btn btn-warning">Edytuj</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id_Samolotu" class="btn btn-danger">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> 

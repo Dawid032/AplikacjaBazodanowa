@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Panel Administracyjny";
+}
+
+<h2>Panel Administracyjny</h2>
+
+<p>Wybierz tabelę, którą chcesz zarządzać:</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nazwa tabeli</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var table in Model)
+        {
+            <tr>
+                <td>@table.Name</td>
+                <td>
+                    <a class="btn btn-primary" href="@Url.Action("ViewTable", "Admin", new { tableName = table.Url })">Wyświetl i Edytuj</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

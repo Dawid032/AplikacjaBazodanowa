@@ -1,0 +1,32 @@
+@model IEnumerable<AplikacjaBazodanowa.Models.Rezerwacje>
+
+<h2>Rezerwacje</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Dodaj nową rezerwację</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Pasazer</th>
+            <th>Lot</th>
+            <th>Data Rezerwacji</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Pasazer.Imie @item.Pasazer.Nazwisko</td>
+                <td>@item.Lot.Miasto_Odlotu - @item.Lot.Miasto_Przylotu</td>
+                <td>@item.Data_Rezerwacji.ToString("dd.MM.yyyy")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id_Rezerwacji" class="btn btn-warning">Edytuj</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id_Rezerwacji" class="btn btn-danger">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> 

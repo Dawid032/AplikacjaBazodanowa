@@ -1,0 +1,23 @@
+@model AplikacjaBazodanowa.Models.Samoloty
+
+<h2>Dodaj Samolot</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="Model" class="control-label"></label>
+        <input asp-for="Model" class="form-control" />
+        <span asp-validation-for="Model" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Liczba_Miejsc" class="control-label"></label>
+        <input asp-for="Liczba_Miejsc" class="form-control" />
+        <span asp-validation-for="Liczba_Miejsc" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Id_Linii" class="control-label">Linia Lotnicza</label>
+        <select asp-for="Id_Linii" class="form-control" asp-items="ViewBag.LinieLotnicze"></select>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Dodaj" class="btn btn-primary" />
+    </div>
+</form> 

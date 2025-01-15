@@ -1,0 +1,32 @@
+@model List<Dictionary<string, object>>
+@{
+    var tableName = ViewBag.TableName as string;
+}
+
+<h1>Tabela: @tableName</h1>
+
+<table>
+    <thead>
+        <tr>
+            @foreach (var column in Model.First().Keys)
+            {
+                <th>@column</th>
+            }
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in Model)
+        {
+            <tr>
+                @foreach (var value in row.Values)
+                {
+                    <td>@value</td>
+                }
+                <td>
+                    <a href="/Admin/DeleteRow?tableName=@tableName&id=@row["id"]">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

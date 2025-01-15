@@ -1,0 +1,22 @@
+@model AplikacjaBazodanowa.Models.Zaloga
+
+<h2>Dodaj Członka Załogi</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="Id_Lotu" class="control-label">Lot</label>
+        <select asp-for="Id_Lotu" class="form-control" asp-items="ViewBag.Loty"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Id_Pilota" class="control-label">Pilot</label>
+        <select asp-for="Id_Pilota" class="form-control" asp-items="ViewBag.Piloci"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Funkcja" class="control-label"></label>
+        <input asp-for="Funkcja" class="form-control" />
+        <span asp-validation-for="Funkcja" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Dodaj" class="btn btn-primary" />
+    </div>
+</form> 

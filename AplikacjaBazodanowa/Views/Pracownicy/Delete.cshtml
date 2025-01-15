@@ -1,0 +1,28 @@
+@model AplikacjaBazodanowa.Models.Pracownicy
+
+<h2>Usuń Pracownika</h2>
+
+<h3>Czy na pewno chcesz usunąć tego pracownika?</h3>
+<div>
+    <h4>@Model.Imie @Model.Nazwisko</h4>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Stanowisko
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Stanowisko
+        </dd>
+        <dt class="col-sm-2">
+            Pensja
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Pensja
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id_Pracownika" />
+        <input type="submit" value="Usuń" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+    </form>
+</div> 

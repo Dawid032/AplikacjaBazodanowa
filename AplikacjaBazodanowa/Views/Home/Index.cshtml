@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IEnumerable<AplikacjaBazodanowa.Models.Samoloty>
+
+<div class="text-center">
+    <h1 class="display-4">Witaj w aplikacji bazodanowej!</h1>
+</div>
+
+
+<h2>Samoloty</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Model</th>
+            <th>Liczba Miejsc</th>
+            <th>Linia Lotnicza</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Model</td>
+                    <td>@item.Liczba_Miejsc</td>
+                    <td>@item.LinieLotnicze?.Nazwa</td> <!-- Użycie operatora null-conditional -->
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3">Brak danych do wyświetlenia.</td>
+            </tr>
+        }
+    </tbody>
+</table>
